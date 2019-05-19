@@ -61,9 +61,19 @@ public class NavigationMapsManager {
     
     // MARK: - Init method
     
-    init(to destination: LocationCoordinates, appsToUse: [NavigationApp], urlOpener: CanOpenURL = UIApplication.shared) {
+    internal init(to destination: LocationCoordinates, appsToUse: [NavigationApp], urlOpener: CanOpenURL = UIApplication.shared) {
         self.destinationLocation = destination
         self.urlOpener = urlOpener
+        
+        availableNavigationApps = [.none]
+        _availableNavigationApps = [.none]
+        
+        self.checkForNavigationApps(appsToUse: appsToUse)
+    }
+    
+    init(to destination: LocationCoordinates, appsToUse: [NavigationApp]) {
+        self.destinationLocation = destination
+        self.urlOpener = UIApplication.shared
         
         availableNavigationApps = [.none]
         _availableNavigationApps = [.none]
@@ -81,32 +91,15 @@ public class NavigationMapsManager {
      */
     private func checkForNavigationApps(appsToUse: [NavigationApp]) {
         for app in appsToUse {
-            switch app {
-            case .google:
-                if urlOpener.canOpenURL(url: URL(string: "comgooglemaps://")!) {
-                    availableNavigationApps.append(.google)
-                }
-            case .maps:
-                if urlOpener.canOpenURL(url: URL(string: "http://maps.apple.com")!) {
-                    availableNavigationApps.append(.maps)
-                }
-            case .waze:
-                if urlOpener.canOpenURL(url: URL(string: "waze://")!) {
-                    availableNavigationApps.append(.waze)
-                }
-            case .here:
-                if urlOpener.canOpenURL(url: URL(string: "here-route://")!) {
-                    availableNavigationApps.append(.here)
-                }
-            default:
-                break
+            if urlOpener.canOpenURL(url: URL(string: app.scheme)!) {
+                availableNavigationApps.append(app)
             }
         }
     }
     
     // MARK: - Presenting in UI
     
-    public func presentOptions(optionsShower: NavigationsOptionsShower, from: Presentable) {
+    internal func presentOptions(optionsShower: NavigationsOptionsShower, from: Presentable) {
         optionsShower.showOptions(self._availableNavigationApps, from: from) { (app) in
             self.openMapsWith(nav: app)
         }
@@ -174,35 +167,3 @@ public class NavigationMapsManager {
         urlOpener.open(url: url)
     }
 }
-
-protocol CanOpenURL {
-    func canOpenURL(url: URL) -> Bool
-    func open(url: URL)
-}
-
-public protocol NavigationsOptionsShower {
-    func showOptions(_ options: [NavigationApp], from: Presentable, selection: @escaping (NavigationApp) -> Void)
-}
-
-public protocol Presentable {
-    func present(itemToPresent: Presentable)
-}
-
-/**
- Protocol which enables module that implements it, to open Navigation Apps with location.
- */
-public protocol CanOpenNavigationApps {
-    func navigate(_ toLocation:LocationCoordinates, appsToUse: [NavigationApp])
-}
-
-/**
- Wrapper protocol for passing _Latitude_ and _Longitude_ values.
- 
- Implemented for `CLLocation` and `CLLocationCoordinate2D`
- */
-public protocol LocationCoordinates {
-    var lcLatitude: Double { get }
-    var lcLongitude: Double { get }
-}
-
-

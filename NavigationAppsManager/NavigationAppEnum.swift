@@ -35,6 +35,21 @@ public enum NavigationApp: String {
         }
     }
     
+    var scheme: String {
+        switch self {
+        case .google:
+            return "comgooglemaps://"
+        case .maps:
+            return "http://maps.apple.com"
+        case .waze:
+            return "waze://"
+        case .here:
+            return "here-route://"
+        case .none:
+            return ""
+        }
+    }
+    
     /**
      Default order to present the navigation apps.
      1. Maps (iOS)

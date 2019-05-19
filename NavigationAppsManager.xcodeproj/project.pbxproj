@@ -8,11 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		CDF09C6822914D8600BD7B10 /* NavigationAppsManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF09C5E22914D8600BD7B10 /* NavigationAppsManager.framework */; };
-		CDF09C6D22914D8600BD7B10 /* NavigationAppsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C6C22914D8600BD7B10 /* NavigationAppsManagerTests.swift */; };
 		CDF09C6F22914D8600BD7B10 /* NavigationAppsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF09C6122914D8600BD7B10 /* NavigationAppsManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDF09C7A22914E5600BD7B10 /* NavigationMapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C7822914E5500BD7B10 /* NavigationMapsManager.swift */; };
 		CDF09C7B22914E5600BD7B10 /* NavigationMapsManagerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C7922914E5600BD7B10 /* NavigationMapsManagerProvider.swift */; };
 		CDF09C962291590F00BD7B10 /* NavigationAppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C952291590F00BD7B10 /* NavigationAppEnum.swift */; };
+		CDF09C99229166BF00BD7B10 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C98229166BF00BD7B10 /* Presentable.swift */; };
+		CDF09C9B229166D700BD7B10 /* CanOpenURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C9A229166D700BD7B10 /* CanOpenURL.swift */; };
+		CDF09C9D229166F000BD7B10 /* NavigationsOptionsShower.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C9C229166F000BD7B10 /* NavigationsOptionsShower.swift */; };
+		CDF09C9F2291670600BD7B10 /* CanOpenNavigationApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C9E2291670600BD7B10 /* CanOpenNavigationApps.swift */; };
+		CDF09CA12291672A00BD7B10 /* LocationCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09CA02291672A00BD7B10 /* LocationCoordinates.swift */; };
+		CDF09CA42291688D00BD7B10 /* MockPresentMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09CA32291688D00BD7B10 /* MockPresentMethodViewController.swift */; };
+		CDF09CA6229168EE00BD7B10 /* CanOpenNavigationAppsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09CA5229168EE00BD7B10 /* CanOpenNavigationAppsTests.swift */; };
+		CDF09CA9229169D500BD7B10 /* CoreLocationStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09CA8229169D500BD7B10 /* CoreLocationStubs.swift */; };
+		CDF09CAB22916C3000BD7B10 /* MockCanOpenAllURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09CAA22916C3000BD7B10 /* MockCanOpenAllURL.swift */; };
+		CDF09CAD2291704F00BD7B10 /* MockCanOpenNoURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09CAC2291704F00BD7B10 /* MockCanOpenNoURL.swift */; };
+		CDF09CB2229173A200BD7B10 /* OpenSpecificAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09CB1229173A200BD7B10 /* OpenSpecificAppTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,11 +40,21 @@
 		CDF09C6122914D8600BD7B10 /* NavigationAppsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationAppsManager.h; sourceTree = "<group>"; };
 		CDF09C6222914D8600BD7B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDF09C6722914D8600BD7B10 /* NavigationAppsManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationAppsManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDF09C6C22914D8600BD7B10 /* NavigationAppsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAppsManagerTests.swift; sourceTree = "<group>"; };
 		CDF09C6E22914D8600BD7B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDF09C7822914E5500BD7B10 /* NavigationMapsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationMapsManager.swift; sourceTree = "<group>"; };
 		CDF09C7922914E5600BD7B10 /* NavigationMapsManagerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationMapsManagerProvider.swift; sourceTree = "<group>"; };
 		CDF09C952291590F00BD7B10 /* NavigationAppEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAppEnum.swift; sourceTree = "<group>"; };
+		CDF09C98229166BF00BD7B10 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		CDF09C9A229166D700BD7B10 /* CanOpenURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanOpenURL.swift; sourceTree = "<group>"; };
+		CDF09C9C229166F000BD7B10 /* NavigationsOptionsShower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationsOptionsShower.swift; sourceTree = "<group>"; };
+		CDF09C9E2291670600BD7B10 /* CanOpenNavigationApps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanOpenNavigationApps.swift; sourceTree = "<group>"; };
+		CDF09CA02291672A00BD7B10 /* LocationCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinates.swift; sourceTree = "<group>"; };
+		CDF09CA32291688D00BD7B10 /* MockPresentMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPresentMethodViewController.swift; sourceTree = "<group>"; };
+		CDF09CA5229168EE00BD7B10 /* CanOpenNavigationAppsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanOpenNavigationAppsTests.swift; sourceTree = "<group>"; };
+		CDF09CA8229169D500BD7B10 /* CoreLocationStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationStubs.swift; sourceTree = "<group>"; };
+		CDF09CAA22916C3000BD7B10 /* MockCanOpenAllURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCanOpenAllURL.swift; sourceTree = "<group>"; };
+		CDF09CAC2291704F00BD7B10 /* MockCanOpenNoURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCanOpenNoURL.swift; sourceTree = "<group>"; };
+		CDF09CB1229173A200BD7B10 /* OpenSpecificAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSpecificAppTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +97,7 @@
 		CDF09C6022914D8600BD7B10 /* NavigationAppsManager */ = {
 			isa = PBXGroup;
 			children = (
+				CDF09C97229166A900BD7B10 /* Protocols */,
 				CDF09C7822914E5500BD7B10 /* NavigationMapsManager.swift */,
 				CDF09C7922914E5600BD7B10 /* NavigationMapsManagerProvider.swift */,
 				CDF09C6122914D8600BD7B10 /* NavigationAppsManager.h */,
@@ -89,10 +110,51 @@
 		CDF09C6B22914D8600BD7B10 /* NavigationAppsManagerTests */ = {
 			isa = PBXGroup;
 			children = (
-				CDF09C6C22914D8600BD7B10 /* NavigationAppsManagerTests.swift */,
+				CDF09CA7229169C500BD7B10 /* Stubs */,
+				CDF09CA22291684C00BD7B10 /* Mocks */,
+				CDF09CA5229168EE00BD7B10 /* CanOpenNavigationAppsTests.swift */,
+				CDF09CB1229173A200BD7B10 /* OpenSpecificAppTests.swift */,
 				CDF09C6E22914D8600BD7B10 /* Info.plist */,
 			);
 			path = NavigationAppsManagerTests;
+			sourceTree = "<group>";
+		};
+		CDF09C97229166A900BD7B10 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CDF09C98229166BF00BD7B10 /* Presentable.swift */,
+				CDF09C9A229166D700BD7B10 /* CanOpenURL.swift */,
+				CDF09C9C229166F000BD7B10 /* NavigationsOptionsShower.swift */,
+				CDF09C9E2291670600BD7B10 /* CanOpenNavigationApps.swift */,
+				CDF09CA02291672A00BD7B10 /* LocationCoordinates.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CDF09CA22291684C00BD7B10 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				CDF09CA32291688D00BD7B10 /* MockPresentMethodViewController.swift */,
+				CDF09CAE2291708D00BD7B10 /* CanOpenURL */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		CDF09CA7229169C500BD7B10 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				CDF09CA8229169D500BD7B10 /* CoreLocationStubs.swift */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		CDF09CAE2291708D00BD7B10 /* CanOpenURL */ = {
+			isa = PBXGroup;
+			children = (
+				CDF09CAA22916C3000BD7B10 /* MockCanOpenAllURL.swift */,
+				CDF09CAC2291704F00BD7B10 /* MockCanOpenNoURL.swift */,
+			);
+			path = CanOpenURL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +266,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF09CA12291672A00BD7B10 /* LocationCoordinates.swift in Sources */,
+				CDF09C9D229166F000BD7B10 /* NavigationsOptionsShower.swift in Sources */,
+				CDF09C9B229166D700BD7B10 /* CanOpenURL.swift in Sources */,
+				CDF09C9F2291670600BD7B10 /* CanOpenNavigationApps.swift in Sources */,
 				CDF09C7A22914E5600BD7B10 /* NavigationMapsManager.swift in Sources */,
+				CDF09C99229166BF00BD7B10 /* Presentable.swift in Sources */,
 				CDF09C962291590F00BD7B10 /* NavigationAppEnum.swift in Sources */,
 				CDF09C7B22914E5600BD7B10 /* NavigationMapsManagerProvider.swift in Sources */,
 			);
@@ -214,7 +281,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDF09C6D22914D8600BD7B10 /* NavigationAppsManagerTests.swift in Sources */,
+				CDF09CAB22916C3000BD7B10 /* MockCanOpenAllURL.swift in Sources */,
+				CDF09CB2229173A200BD7B10 /* OpenSpecificAppTests.swift in Sources */,
+				CDF09CA6229168EE00BD7B10 /* CanOpenNavigationAppsTests.swift in Sources */,
+				CDF09CA9229169D500BD7B10 /* CoreLocationStubs.swift in Sources */,
+				CDF09CAD2291704F00BD7B10 /* MockCanOpenNoURL.swift in Sources */,
+				CDF09CA42291688D00BD7B10 /* MockPresentMethodViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
