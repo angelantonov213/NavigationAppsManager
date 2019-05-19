@@ -10,6 +10,9 @@
 		CDF09C6822914D8600BD7B10 /* NavigationAppsManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF09C5E22914D8600BD7B10 /* NavigationAppsManager.framework */; };
 		CDF09C6D22914D8600BD7B10 /* NavigationAppsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C6C22914D8600BD7B10 /* NavigationAppsManagerTests.swift */; };
 		CDF09C6F22914D8600BD7B10 /* NavigationAppsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF09C6122914D8600BD7B10 /* NavigationAppsManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDF09C7A22914E5600BD7B10 /* NavigationMapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C7822914E5500BD7B10 /* NavigationMapsManager.swift */; };
+		CDF09C7B22914E5600BD7B10 /* NavigationMapsManagerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C7922914E5600BD7B10 /* NavigationMapsManagerProvider.swift */; };
+		CDF09C962291590F00BD7B10 /* NavigationAppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C952291590F00BD7B10 /* NavigationAppEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		CDF09C6722914D8600BD7B10 /* NavigationAppsManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationAppsManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF09C6C22914D8600BD7B10 /* NavigationAppsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAppsManagerTests.swift; sourceTree = "<group>"; };
 		CDF09C6E22914D8600BD7B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDF09C7822914E5500BD7B10 /* NavigationMapsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationMapsManager.swift; sourceTree = "<group>"; };
+		CDF09C7922914E5600BD7B10 /* NavigationMapsManagerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationMapsManagerProvider.swift; sourceTree = "<group>"; };
+		CDF09C952291590F00BD7B10 /* NavigationAppEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAppEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +77,11 @@
 		CDF09C6022914D8600BD7B10 /* NavigationAppsManager */ = {
 			isa = PBXGroup;
 			children = (
+				CDF09C7822914E5500BD7B10 /* NavigationMapsManager.swift */,
+				CDF09C7922914E5600BD7B10 /* NavigationMapsManagerProvider.swift */,
 				CDF09C6122914D8600BD7B10 /* NavigationAppsManager.h */,
 				CDF09C6222914D8600BD7B10 /* Info.plist */,
+				CDF09C952291590F00BD7B10 /* NavigationAppEnum.swift */,
 			);
 			path = NavigationAppsManager;
 			sourceTree = "<group>";
@@ -148,6 +157,7 @@
 				TargetAttributes = {
 					CDF09C5D22914D8600BD7B10 = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 					};
 					CDF09C6622914D8600BD7B10 = {
 						CreatedOnToolsVersion = 10.2;
@@ -194,6 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF09C7A22914E5600BD7B10 /* NavigationMapsManager.swift in Sources */,
+				CDF09C962291590F00BD7B10 /* NavigationAppEnum.swift in Sources */,
+				CDF09C7B22914E5600BD7B10 /* NavigationMapsManagerProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +354,7 @@
 		CDF09C7322914D8600BD7B10 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -350,6 +364,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = NavigationAppsManager/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ihome.NavigationAppsManager;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +382,7 @@
 		CDF09C7422914D8600BD7B10 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -375,6 +392,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = NavigationAppsManager/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -391,6 +409,7 @@
 		CDF09C7622914D8600BD7B10 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32585VU7YG;
 				INFOPLIST_FILE = NavigationAppsManagerTests/Info.plist;
@@ -409,6 +428,7 @@
 		CDF09C7722914D8600BD7B10 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32585VU7YG;
 				INFOPLIST_FILE = NavigationAppsManagerTests/Info.plist;
