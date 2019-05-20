@@ -49,7 +49,7 @@ class NavigationMapsManagerTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
     
-    func test_WillOpenCorrectNavigationApp() {
+    func test_WillOpenCorrectNavigationApp_FromActionSheet() {
         let expectation = self.expectation(description: "Alert controller will open correct action sheet")
         
         let mockCanOpenURL = MockCanOpenAllURL()
@@ -70,6 +70,56 @@ class NavigationMapsManagerTests: XCTestCase {
         }
         
         manager.presentOptions(optionsShower: ActionSheetMapsOptionsShower(), from: vc)
+        
+        wait(for: [expectation], timeout: 1.0)
+    }
+    
+    func test_WillOpenCorrectNavigationApp_FromAlert() {
+        let expectation = self.expectation(description: "Alert controller will open correct action sheet")
+        
+        let mockCanOpenURL = MockCanOpenAllURL()
+        
+        let manager = NavigationMapsManager(to: CoreLocationStubs.simpleLocation, appsToUse: [.google, .here], urlOpener: mockCanOpenURL)
+        
+        mockCanOpenURL.didCallOpen = { url in
+            if url.absoluteString.contains(NavigationApp.here.scheme) {
+                expectation.fulfill()
+                return
+            }
+        }
+        
+        vc.didCall = { vc in
+            if let vc = vc as? UIAlertController {
+                vc.tapButton(atIndex: 1)
+            }
+        }
+        
+        manager.presentOptions(optionsShower: AlertMapsOptionsShower(), from: vc)
+        
+        wait(for: [expectation], timeout: 1.0)
+    }
+    
+    func test_WillOpenCorrectNavigationApp_FromView() {
+        let expectation = self.expectation(description: "Alert controller will open correct action sheet")
+        
+        let mockCanOpenURL = MockCanOpenAllURL()
+        
+        let manager = NavigationMapsManager(to: CoreLocationStubs.simpleLocation, appsToUse: [.google, .here], urlOpener: mockCanOpenURL)
+        
+        mockCanOpenURL.didCallOpen = { url in
+            if url.absoluteString.contains(NavigationApp.here.scheme) {
+                expectation.fulfill()
+                return
+            }
+        }
+        
+        vc.didCall = { vc in
+            if let vc = vc as? UIAlertController {
+                vc.tapButton(atIndex: 1)
+            }
+        }
+        
+        manager.presentOptions(optionsShower: AlertMapsOptionsShower(), from: vc.view)
         
         wait(for: [expectation], timeout: 1.0)
     }

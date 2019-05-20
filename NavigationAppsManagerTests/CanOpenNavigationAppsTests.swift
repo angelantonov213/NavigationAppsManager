@@ -62,5 +62,28 @@ class CanOpenNavigationAppsTests: XCTestCase {
         
         wait(for: [expectation], timeout: 1.0)
     }
+    
+    func test_navigate_ToNotSetAppScheme_DoesntCallViewController_PresentMethod_FromView() {
+        let expectation = self.expectation(description: "Expect to open a browser directly")
+        
+        let mockCanOpenURL = MockCanOpenNoURL()
+        mockCanOpenURL.didCallOpen = { url in
+            if url.absoluteString.contains("http://maps.google.com") {
+                expectation.fulfill()
+                return
+            }
+        }
+        
+        sut.didCall = { _ in
+            assertionFailure("Should not call present method")
+        }
+        
+        let v = MockCanOpenNavigationAppsView()
+        sut.view.addSubview(v)
+        
+        v.navigate(CoreLocationStubs.simpleLocation, appsToUse: [.google, .maps], urlOpener: mockCanOpenURL)
+        
+        wait(for: [expectation], timeout: 1.0)
+    }
 
 }
