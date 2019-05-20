@@ -10,9 +10,9 @@ import UIKit
 @testable import NavigationAppsManager
 
 class MockPresentMethodViewController: UIViewController, CanOpenNavigationApps {
-    var didCall: (() -> Void)!
+    var didCall: ((_ vc: UIViewController) -> Void)!
     
     override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
-        self.didCall()
+        self.didCall(viewControllerToPresent)
     }
 }

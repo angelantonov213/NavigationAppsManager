@@ -23,6 +23,8 @@
 		CDF09CAB22916C3000BD7B10 /* MockCanOpenAllURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09CAA22916C3000BD7B10 /* MockCanOpenAllURL.swift */; };
 		CDF09CAD2291704F00BD7B10 /* MockCanOpenNoURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09CAC2291704F00BD7B10 /* MockCanOpenNoURL.swift */; };
 		CDF09CB2229173A200BD7B10 /* OpenSpecificAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09CB1229173A200BD7B10 /* OpenSpecificAppTests.swift */; };
+		CDF09CB8229301EE00BD7B10 /* LocationCoordinatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09CB7229301EE00BD7B10 /* LocationCoordinatesTests.swift */; };
+		CDF09CBA2293041300BD7B10 /* NavigationMapsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09CB92293041300BD7B10 /* NavigationMapsManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		CDF09CAA22916C3000BD7B10 /* MockCanOpenAllURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCanOpenAllURL.swift; sourceTree = "<group>"; };
 		CDF09CAC2291704F00BD7B10 /* MockCanOpenNoURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCanOpenNoURL.swift; sourceTree = "<group>"; };
 		CDF09CB1229173A200BD7B10 /* OpenSpecificAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSpecificAppTests.swift; sourceTree = "<group>"; };
+		CDF09CB7229301EE00BD7B10 /* LocationCoordinatesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinatesTests.swift; sourceTree = "<group>"; };
+		CDF09CB92293041300BD7B10 /* NavigationMapsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMapsManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 				CDF09CA5229168EE00BD7B10 /* CanOpenNavigationAppsTests.swift */,
 				CDF09CB1229173A200BD7B10 /* OpenSpecificAppTests.swift */,
 				CDF09C6E22914D8600BD7B10 /* Info.plist */,
+				CDF09CB7229301EE00BD7B10 /* LocationCoordinatesTests.swift */,
+				CDF09CB92293041300BD7B10 /* NavigationMapsManagerTests.swift */,
 			);
 			path = NavigationAppsManagerTests;
 			sourceTree = "<group>";
@@ -285,6 +291,8 @@
 				CDF09CB2229173A200BD7B10 /* OpenSpecificAppTests.swift in Sources */,
 				CDF09CA6229168EE00BD7B10 /* CanOpenNavigationAppsTests.swift in Sources */,
 				CDF09CA9229169D500BD7B10 /* CoreLocationStubs.swift in Sources */,
+				CDF09CBA2293041300BD7B10 /* NavigationMapsManagerTests.swift in Sources */,
+				CDF09CB8229301EE00BD7B10 /* LocationCoordinatesTests.swift in Sources */,
 				CDF09CAD2291704F00BD7B10 /* MockCanOpenNoURL.swift in Sources */,
 				CDF09CA42291688D00BD7B10 /* MockPresentMethodViewController.swift in Sources */,
 			);

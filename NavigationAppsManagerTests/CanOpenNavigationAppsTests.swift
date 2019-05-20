@@ -17,7 +17,7 @@ class CanOpenNavigationAppsTests: XCTestCase {
     func test_navigate_CallsViewController_PresentMethod() {
         let expectation = self.expectation(description: "Call present method")
         
-        sut.didCall = {
+        sut.didCall = { _ in
             expectation.fulfill()
         }
         
@@ -34,7 +34,7 @@ class CanOpenNavigationAppsTests: XCTestCase {
             expectation.fulfill()
         }
         
-        sut.didCall = {
+        sut.didCall = { _ in
             assertionFailure("Should not call present method")
         }
         
@@ -54,7 +54,7 @@ class CanOpenNavigationAppsTests: XCTestCase {
             }
         }
         
-        sut.didCall = {
+        sut.didCall = { _ in
             assertionFailure("Should not call present method")
         }
         
