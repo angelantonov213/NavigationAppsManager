@@ -22,18 +22,18 @@ public protocol CanOpenNavigationApps {
      
      There is a default implementation for `UIView` and `UIViewController`.
      */
-    func navigate(_ toLocation:LocationCoordinates, appsToUse: [NavigationApp], urlOpener: CanOpenURL)
+    func navigate(_ toLocation:LocationCoordinates, appsToUse: [NavigationAppTypes], urlOpener: CanOpenURL)
 }
 
 public extension CanOpenNavigationApps where Self: UIViewController {
-    func navigate(_ toLocation:LocationCoordinates, appsToUse: [NavigationApp] = NavigationApp.defaultOrder, urlOpener: CanOpenURL = UIApplication.shared) {
+    func navigate(_ toLocation:LocationCoordinates, appsToUse: [NavigationAppTypes] = NavigationAppTypes.defaultOrder, urlOpener: CanOpenURL = UIApplication.shared) {
         let navigationMapsManager = NavigationMapsManager(to: toLocation, appsToUse: appsToUse, urlOpener: urlOpener)
         navigationMapsManager.presentOptions(optionsShower:ActionSheetMapsOptionsShower(), from: self)
     }
 }
 
 public extension CanOpenNavigationApps where Self: UIView {
-    func navigate(_ toLocation:LocationCoordinates, appsToUse: [NavigationApp] = NavigationApp.defaultOrder, urlOpener: CanOpenURL = UIApplication.shared) {
+    func navigate(_ toLocation:LocationCoordinates, appsToUse: [NavigationAppTypes] = NavigationAppTypes.defaultOrder, urlOpener: CanOpenURL = UIApplication.shared) {
         let navigationMapsManager = NavigationMapsManager(to: toLocation, appsToUse: appsToUse, urlOpener: urlOpener)
         navigationMapsManager.presentOptions(optionsShower:ActionSheetMapsOptionsShower(), from: self)
     }

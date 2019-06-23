@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD23950722C0075300DA2C02 /* NavigationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23950622C0075300DA2C02 /* NavigationApp.swift */; };
 		CDF09C6822914D8600BD7B10 /* NavigationAppsManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF09C5E22914D8600BD7B10 /* NavigationAppsManager.framework */; };
 		CDF09C6F22914D8600BD7B10 /* NavigationAppsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF09C6122914D8600BD7B10 /* NavigationAppsManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDF09C7A22914E5600BD7B10 /* NavigationMapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF09C7822914E5500BD7B10 /* NavigationMapsManager.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD23950622C0075300DA2C02 /* NavigationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationApp.swift; sourceTree = "<group>"; };
 		CDF09C5E22914D8600BD7B10 /* NavigationAppsManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NavigationAppsManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF09C6122914D8600BD7B10 /* NavigationAppsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationAppsManager.h; sourceTree = "<group>"; };
 		CDF09C6222914D8600BD7B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD23950522C0073000DA2C02 /* NavigationApps */ = {
+			isa = PBXGroup;
+			children = (
+				CD23950622C0075300DA2C02 /* NavigationApp.swift */,
+			);
+			path = NavigationApps;
+			sourceTree = "<group>";
+		};
 		CDF09C5422914D8600BD7B10 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 		CDF09C6022914D8600BD7B10 /* NavigationAppsManager */ = {
 			isa = PBXGroup;
 			children = (
+				CD23950522C0073000DA2C02 /* NavigationApps */,
 				CDF09C97229166A900BD7B10 /* Protocols */,
 				CDF09C7822914E5500BD7B10 /* NavigationMapsManager.swift */,
 				CDF09C7922914E5600BD7B10 /* NavigationMapsManagerProvider.swift */,
@@ -282,6 +293,7 @@
 				CDF09C7A22914E5600BD7B10 /* NavigationMapsManager.swift in Sources */,
 				CDF09C99229166BF00BD7B10 /* Presentable.swift in Sources */,
 				CDF09C962291590F00BD7B10 /* NavigationAppEnum.swift in Sources */,
+				CD23950722C0075300DA2C02 /* NavigationApp.swift in Sources */,
 				CDF09C7B22914E5600BD7B10 /* NavigationMapsManagerProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

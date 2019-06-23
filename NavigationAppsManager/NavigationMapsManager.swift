@@ -34,8 +34,8 @@ public class NavigationMapsManager {
     // MARK: - Available navigation apps array
     private var canSetAvailableNavigationApps: Bool = true
     
-    private var _availableNavigationApps: [NavigationApp]
-    private var availableNavigationApps: [NavigationApp] {
+    private var _availableNavigationApps: [NavigationAppTypes]
+    private var availableNavigationApps: [NavigationAppTypes] {
         didSet {
             if self.canSetAvailableNavigationApps == false {
                 return
@@ -61,7 +61,7 @@ public class NavigationMapsManager {
     
     // MARK: - Init method
     
-    internal init(to destination: LocationCoordinates, appsToUse: [NavigationApp], urlOpener: CanOpenURL = UIApplication.shared) {
+    internal init(to destination: LocationCoordinates, appsToUse: [NavigationAppTypes], urlOpener: CanOpenURL = UIApplication.shared) {
         self.destinationLocation = destination
         self.urlOpener = urlOpener
         
@@ -71,7 +71,7 @@ public class NavigationMapsManager {
         self.checkForNavigationApps(appsToUse: appsToUse)
     }
     
-    init(to destination: LocationCoordinates, appsToUse: [NavigationApp]) {
+    init(to destination: LocationCoordinates, appsToUse: [NavigationAppTypes]) {
         self.destinationLocation = destination
         self.urlOpener = UIApplication.shared
         
@@ -89,9 +89,9 @@ public class NavigationMapsManager {
      here-route
 
      */
-    private func checkForNavigationApps(appsToUse: [NavigationApp]) {
+    private func checkForNavigationApps(appsToUse: [NavigationAppTypes]) {
         for app in appsToUse {
-            if urlOpener.canOpenURL(url: URL(string: app.scheme)!) {
+            if urlOpener.canOpenURL(url: URL(string: NavigationAppsFactory().createNavigationApp(navApp: app).scheme)!) {
                 availableNavigationApps.append(app)
             }
         }
@@ -107,63 +107,7 @@ public class NavigationMapsManager {
     
     // MARK: - Redirecting to navigation
     
-    private func openMapsWith(nav: NavigationApp) {
-        switch nav {
-        case .google:
-            self.openGoogleMapsNavigation()
-        case .maps:
-            self.openMapsNavigation()
-        case .waze:
-            self.openWazeNavigation()
-        case .here:
-            self.openHERENavigation()
-        case .none:
-            self.openSafariGoogleMapsNavigation()
-        }
-    }
-    
-    private func openHERENavigation() {
-        let urlString = "here-route://mylocation/\(destinationLocation.lcLatitude),\(destinationLocation.lcLongitude)?m=d"
-        self.openLink(with: urlString)
-    }
-    
-    private func openMapsNavigation() {
-        let regionDistance:CLLocationDistance = 10000
-        let coordinates = CLLocationCoordinate2DMake(destinationLocation.lcLatitude, destinationLocation.lcLongitude)
-        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span),
-            MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving
-            ] as [String : Any]
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        
-        mapItem.openInMaps(launchOptions: options)
-    }
-    
-    private func openGoogleMapsNavigation() {
-        let urlString = "comgooglemaps://?saddr=&daddr=\(destinationLocation.lcLatitude),\(destinationLocation.lcLongitude)&zoom=14&views=traffic&directionsmode=driving"
-        self.openLink(with: urlString)
-    }
-    
-    private func openWazeNavigation() {
-        let urlString = "waze://?ll=\(destinationLocation.lcLatitude),\(destinationLocation.lcLongitude)&navigate=yes"
-        self.openLink(with: urlString)
-    }
-    
-    private func openSafariGoogleMapsNavigation() {
-        let urlString = "http://maps.google.com?saddr=&daddr=\(destinationLocation.lcLatitude),\(destinationLocation.lcLongitude)&zoom=14&views=traffic&directionsmode=driving"
-        self.openLink(with: urlString)
-    }
-    
-    private func openLink(with urlString: String) {
-        print(urlString)
-        
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        
-        urlOpener.open(url: url)
+    private func openMapsWith(nav: NavigationAppTypes) {
+        NavigationAppsFactory().createNavigationApp(navApp: nav).open(with: destinationLocation, urlOpener: urlOpener)
     }
 }

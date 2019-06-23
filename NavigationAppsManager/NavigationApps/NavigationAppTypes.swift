@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 class NavigationAppsFactory {
-    func createNavigationApp(navApp: NavigationAppTypes) -> NavigationApp {
+    func createNavigationApp(navApp: NavigationAppTypes) -> NavigationAppp {
         switch navApp {
         case .google:
             return GoogleNavigationApp()
@@ -19,20 +19,20 @@ class NavigationAppsFactory {
         case .waze:
             return WazeNavigationApp()
         case .here:
-            return HereWeGoNavigationApp()
+            return "HERE WeGo"
         case .none:
-            return SafariGoogleMapsNavigationApp()
+            return ""
         }
     }
 }
 
-protocol NavigationApp {
+protocol NavigationAppp {
     var title: String { get }
     var scheme: String { get }
     func open(with destinationLocation: LocationCoordinates, urlOpener: CanOpenURL)
 }
 
-extension NavigationApp {
+extension NavigationAppp {
     func openLink(with urlString: String, urlOpener: CanOpenURL = UIApplication.shared) {
         print(urlString)
         
@@ -44,7 +44,7 @@ extension NavigationApp {
     }
 }
 
-struct GoogleNavigationApp: NavigationApp {
+struct GoogleNavigationApp: NavigationAppp {
     var title: String = "Google Maps"
     var scheme: String = "comgooglemaps://"
     
@@ -55,7 +55,7 @@ struct GoogleNavigationApp: NavigationApp {
     }
 }
 
-struct MapsNavigationApp: NavigationApp {
+struct MapsNavigationApp: NavigationAppp {
     var title: String = "Maps"
     var scheme: String = "http://maps.apple.com"
     
@@ -75,7 +75,7 @@ struct MapsNavigationApp: NavigationApp {
     }
 }
 
-struct WazeNavigationApp: NavigationApp {
+struct WazeNavigationApp: NavigationAppp {
     var title: String = "Waze"
     var scheme: String = "waze://"
     
@@ -85,7 +85,7 @@ struct WazeNavigationApp: NavigationApp {
     }
 }
 
-struct HereWeGoNavigationApp: NavigationApp {
+struct HereWeGoNavigationApp: NavigationAppp {
     var title: String = "HERE WeGo"
     var scheme: String = "here-route://"
     
@@ -95,7 +95,7 @@ struct HereWeGoNavigationApp: NavigationApp {
     }
 }
 
-struct SafariGoogleMapsNavigationApp: NavigationApp {
+struct SafariGoogleMapsNavigationApp: NavigationAppp {
     var title: String = "Google Web"
     var scheme: String = "http://maps.google.com"
     

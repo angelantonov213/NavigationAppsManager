@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol NavigationsOptionsShower {
-    func showOptions(_ options: [NavigationApp], from: Presentable, selection: @escaping (NavigationApp) -> Void)
+    func showOptions(_ options: [NavigationAppTypes], from: Presentable, selection: @escaping (NavigationAppTypes) -> Void)
 }

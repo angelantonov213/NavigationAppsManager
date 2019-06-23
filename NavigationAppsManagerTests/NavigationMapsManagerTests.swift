@@ -57,7 +57,7 @@ class NavigationMapsManagerTests: XCTestCase {
         let manager = NavigationMapsManager(to: CoreLocationStubs.simpleLocation, appsToUse: [.google, .here], urlOpener: mockCanOpenURL)
         
         mockCanOpenURL.didCallOpen = { url in
-            if url.absoluteString.contains(NavigationApp.here.scheme) {
+            if url.absoluteString.contains(NavigationAppsFactory().createNavigationApp(navApp: .here).scheme) {
                 expectation.fulfill()
                 return
             }
@@ -82,7 +82,7 @@ class NavigationMapsManagerTests: XCTestCase {
         let manager = NavigationMapsManager(to: CoreLocationStubs.simpleLocation, appsToUse: [.google, .here], urlOpener: mockCanOpenURL)
         
         mockCanOpenURL.didCallOpen = { url in
-            if url.absoluteString.contains(NavigationApp.here.scheme) {
+            if url.absoluteString.contains(NavigationAppsFactory().createNavigationApp(navApp: .here).scheme) {
                 expectation.fulfill()
                 return
             }
@@ -107,7 +107,7 @@ class NavigationMapsManagerTests: XCTestCase {
         let manager = NavigationMapsManager(to: CoreLocationStubs.simpleLocation, appsToUse: [.google, .here], urlOpener: mockCanOpenURL)
         
         mockCanOpenURL.didCallOpen = { url in
-            if url.absoluteString.contains(NavigationApp.here.scheme) {
+            if url.absoluteString.contains(NavigationAppsFactory().createNavigationApp(navApp: .here).scheme) {
                 expectation.fulfill()
                 return
             }

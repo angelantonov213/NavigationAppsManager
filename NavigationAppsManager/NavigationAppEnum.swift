@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum NavigationApp: String {
+public enum NavigationAppTypes: String {
     /** Google Maps. Needs _comgooglemaps://_ */
     case google
     /** Apple Maps */
@@ -20,36 +20,6 @@ public enum NavigationApp: String {
     /** Fallback option if no apps are available. Will open browser with Google Maps url. */
     case none
     
-    var title: String {
-        switch self {
-        case .google:
-            return "Google Maps"
-        case .maps:
-            return "Maps"
-        case .waze:
-            return "Waze"
-        case .here:
-            return "HERE WeGo"
-        case .none:
-            return ""
-        }
-    }
-    
-    var scheme: String {
-        switch self {
-        case .google:
-            return "comgooglemaps://"
-        case .maps:
-            return "http://maps.apple.com"
-        case .waze:
-            return "waze://"
-        case .here:
-            return "here-route://"
-        case .none:
-            return ""
-        }
-    }
-    
     /**
      Default order to present the navigation apps.
      1. Maps (iOS)
@@ -59,7 +29,7 @@ public enum NavigationApp: String {
      
      Note: Schemes should be set in order to load the navigation apps.
      */
-    public static var defaultOrder: [NavigationApp] {
+    public static var defaultOrder: [NavigationAppTypes] {
         return [maps, google, waze, here]
     }
 }

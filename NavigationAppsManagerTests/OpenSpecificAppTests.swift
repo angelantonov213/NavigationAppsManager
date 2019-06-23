@@ -15,7 +15,8 @@ class OpenSpecificAppTests: XCTestCase {
     var sut = MockPresentMethodViewController(nibName: nil, bundle: nil)    
     
     func _test_navigate_OpenMaps() {
-        let app: NavigationApp = .maps
+        let appType: NavigationAppTypes = .maps
+        let app = NavigationAppsFactory().createNavigationApp(navApp: appType)
         
         let expectationCallOpen = self.expectation(description: "Expect to open \(app.title)")
         let expectationCallCanOpen = self.expectation(description: "Expect to check for \(app.title)")
@@ -37,19 +38,22 @@ class OpenSpecificAppTests: XCTestCase {
             assertionFailure("Should not call present method when testing \(app.title)")
         }
         
-        sut.navigate(CoreLocationStubs.simpleLocation, appsToUse: [app], urlOpener: mockCanOpenURL)
+        sut.navigate(CoreLocationStubs.simpleLocation, appsToUse: [appType], urlOpener: mockCanOpenURL)
         
         wait(for: [expectationCallOpen, expectationCallCanOpen], timeout: 1.0)
     }
     
     func test_navigate_ToGoogleMapsApp() {
-        let apps: [NavigationApp] = [.google, .here, .waze]
+        let apps: [NavigationAppTypes] = [.google, .here, .waze]
         for app in apps {
             self.open(app: app)
         }
     }
     
-    private func open(app: NavigationApp) {
+    private func open(app: NavigationAppTypes) {
+        let appType = app
+        let app = NavigationAppsFactory().createNavigationApp(navApp: app)
+        
         let expectationCallOpen = self.expectation(description: "Expect to open \(app.title)")
         let expectationCallCanOpen = self.expectation(description: "Expect to check for \(app.title)")
         
@@ -70,7 +74,7 @@ class OpenSpecificAppTests: XCTestCase {
             assertionFailure("Should not call present method when testing \(app.title)")
         }
         
-        sut.navigate(CoreLocationStubs.simpleLocation, appsToUse: [app], urlOpener: mockCanOpenURL)
+        sut.navigate(CoreLocationStubs.simpleLocation, appsToUse: [appType], urlOpener: mockCanOpenURL)
         
         wait(for: [expectationCallOpen, expectationCallCanOpen], timeout: 1.0)
     }

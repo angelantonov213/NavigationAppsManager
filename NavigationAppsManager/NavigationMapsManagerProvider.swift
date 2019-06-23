@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class ActionSheetMapsOptionsShower: NavigationsOptionsShower {
-    func showOptions(_ options: [NavigationApp], from: Presentable, selection: @escaping (NavigationApp) -> Void) {
+    func showOptions(_ options: [NavigationAppTypes], from: Presentable, selection: @escaping (NavigationAppTypes) -> Void) {
         if options.count == 1, let onlyOption = options.first {
             selection(onlyOption)
             return
@@ -19,7 +19,7 @@ class ActionSheetMapsOptionsShower: NavigationsOptionsShower {
         let alertController = UIAlertController(title: "Изберете навигация:", message: nil, preferredStyle: .actionSheet)
         
         for nav in options {
-            let action = UIAlertAction(title: nav.title, style: UIAlertAction.Style.default) { (action) in
+            let action = UIAlertAction(title: NavigationAppsFactory().createNavigationApp(navApp: nav).title, style: UIAlertAction.Style.default) { (action) in
                 selection(nav)
             }
             
@@ -37,7 +37,7 @@ class ActionSheetMapsOptionsShower: NavigationsOptionsShower {
 }
 
 class AlertMapsOptionsShower: NavigationsOptionsShower {
-    func showOptions(_ options: [NavigationApp], from: Presentable, selection: @escaping (NavigationApp) -> Void) {
+    func showOptions(_ options: [NavigationAppTypes], from: Presentable, selection: @escaping (NavigationAppTypes) -> Void) {
         if options.count == 1, let onlyOption = options.first {
             selection(onlyOption)
             return
@@ -46,7 +46,7 @@ class AlertMapsOptionsShower: NavigationsOptionsShower {
         let alertController = UIAlertController(title: "Изберете навигация:", message: nil, preferredStyle: .alert)
         
         for nav in options {
-            let action = UIAlertAction(title: nav.title, style: UIAlertAction.Style.default) { (action) in
+            let action = UIAlertAction(title: NavigationAppsFactory().createNavigationApp(navApp: nav).title, style: UIAlertAction.Style.default) { (action) in
                 selection(nav)
             }
             
